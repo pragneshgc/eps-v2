@@ -9,7 +9,7 @@ export default {
 
             this.$swal({
                 position: 'bottom',
-                type: 'error',
+                icon: 'error',
                 title: 'Error fetching data!',
                 showConfirmButton: false,
                 timer: 5000,
@@ -25,7 +25,7 @@ export default {
 
             this.$swal({
                 position: 'bottom',
-                type: 'error',
+                icon: 'error',
                 title: 'Whoops!',
                 showConfirmButton: false,
                 timer: 5000,
@@ -40,7 +40,7 @@ export default {
             audio.play();
 
             this.$swal({
-                type: 'error',
+                icon: 'error',
                 title: 'Whoops!',
                 showConfirmButton: false,
                 html: error,
@@ -52,7 +52,7 @@ export default {
         postSuccess: function (response) {
             this.$swal({
                 position: 'bottom',
-                type: 'success',
+                icon: 'success',
                 title: 'Success!',
                 showConfirmButton: false,
                 timer: 5000,
@@ -69,16 +69,16 @@ export default {
             let audio = new Audio('/audio/alarm.mp3');
             audio.play();
 
-            this.$toasted.show(error, 
+            this.$toasted.show(error,
                 {
-                    type : 'error',
+                    type: 'error',
                     iconPack: 'fontawesome',
-                    icon : 'exclamation',                    
-                    duration : 5000,
+                    icon: 'exclamation',
+                    duration: 5000,
                     position: "top-right",
-                    action : {
-                        text : 'Dismiss',
-                        onClick : (e, toastObject) => {
+                    action: {
+                        text: 'Dismiss',
+                        onClick: (e, toastObject) => {
                             toastObject.goAway(0);
                         }
                     },
@@ -89,16 +89,16 @@ export default {
             let audio = new Audio('/audio/alarm.mp3');
             audio.play();
 
-            this.$toasted.show(error, 
+            this.$toasted.show(error,
                 {
-                    type : 'error',
+                    type: 'error',
                     iconPack: 'fontawesome',
-                    icon : 'exclamation',
-                    duration : 5000,
+                    icon: 'exclamation',
+                    duration: 5000,
                     position: "top-right",
-                    action : {
-                        text : 'Dismiss',
-                        onClick : (e, toastObject) => {
+                    action: {
+                        text: 'Dismiss',
+                        onClick: (e, toastObject) => {
                             toastObject.goAway(0);
                         }
                     },
@@ -110,7 +110,7 @@ export default {
             audio.play();
 
             this.$swal({
-                type: 'error',
+                icon: 'error',
                 title: 'Whoops!',
                 showConfirmButton: false,
                 html: error,
@@ -120,20 +120,20 @@ export default {
             });
         },
         postSuccessToast: function (response) {
-            if(response == ''){
+            if (response == '') {
                 response = 'Success!'
-            }  
+            }
 
             this.$toasted.show(response,
                 {
                     iconPack: 'fontawesome',
-                    type : 'success',
-                    icon : 'check',
-                    duration : 2000,
+                    type: 'success',
+                    icon: 'check',
+                    duration: 2000,
                     position: "top-right",
-                    action : {
-                        text : 'Dismiss',
-                        onClick : (e, toastObject) => {
+                    action: {
+                        text: 'Dismiss',
+                        onClick: (e, toastObject) => {
                             toastObject.goAway(0);
                         }
                     },

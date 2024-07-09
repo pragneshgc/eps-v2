@@ -44,10 +44,6 @@
                     </form>
                 </div>
             </section>
-            <section>
-                <button type="button" class="btn btnSize02" @click="swalpopup">Swal</button>
-                <button type="button" class="btn btnSize02" @click="toastpopup">Toast</button>
-            </section>
             <section v-if="orderDetails">
                 <div class="orderDetails">
                     {{ orderDetails }}
@@ -63,6 +59,7 @@ import Error from '../../mixins/errors'
 export default {
     data: function () {
         return {
+            pharmacies: [],
             statistics: { processing: 0, ready: 0, import: 0, dpd: 0, ups: 0, dhl: 0, rml: 0, shipped: 0, total: 0 },
             loaded: false,
             orderID: '',
@@ -71,59 +68,30 @@ export default {
     },
     mounted() {
         this.getStatistics();
+        this.getPharmacies();
         document.getElementById("orderID").focus();
     },
     methods: {
-        swalpopup() {
-            /* Swal.fire({
-                position: 'bottom',
-                icon: 'success',
-                title: 'Success!',
-                showConfirmButton: false,
-                timer: 5000,
-                //timer: 9999999999999999,
-                toast: true,
-                text: "Swal Popup fire",
-            }); */
-            this.$swal({
-                icon: 'warning',
-                position: 'bottom',
-                type: 'error',
-                title: 'Error fetching data!',
-                showConfirmButton: false,
-                timer: 5000,
-                toast: true,
-                text: 'Try refreshing your page, we will notify the developers.',
-            })
-            /* this.$swal({
-                title: 'Are you sure you want to delete this item?',
-                type: 'warning',
-                showConfirmButton: true,
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes!'
-            }) */
-        },
-        toastpopup() {
-            this.$toasted.show("Toast popup",
-                {
-                    iconPack: 'fontawesome',
-                    type: 'warning',
-                    icon: 'exclamation',
-                    duration: 2000,
-                    position: "top-right",
-                    action: {
-                        text: 'Dismiss',
-                        onClick: (e, toastObject) => {
-                            toastObject.goAway(0);
-                        }
-                    },
-                }
-            )
-        },
         search() {
             this.$router.push({ name: 'order', params: { id: this.orderID } });
+        },
+        getPharmacies() {
+            axios.get(`/pharmacies/list`)
+                .then((response) => {
+                    let r = response.data.data;
+                    r.forEach(result => {
+                        this.pharmacies.push({
+                            id: result.PharmacyID,
+                            value: result.PharmacyID,
+                            label: result.Title
+                        });
+                    });
+
+                    console.log('pharmacy', this.pharmacies);
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
         },
         getStatistics() {
             axios.get('/statistics')

@@ -7,7 +7,7 @@ export default {
         deleteItem: function (id) {
             this.$swal({
                 title: 'Are you sure you want to cancel this order?',
-                type: 'warning',
+                icon: 'warning',
                 showConfirmButton: true,
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

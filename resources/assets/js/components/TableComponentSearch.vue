@@ -14,14 +14,18 @@
                         <input v-model="selectedFilters[filter.value]" v-if="filter.type == 'text'"
                             class="form-control tBoxSize02" :placeholder="filter.title" />
                         <datepicker v-else-if="filter.type == 'date'" :placeholder="filter.title" :name="filter.value"
-                            v-model="selectedFilters[filter.value]" maxlength="30">
-                        </datepicker>
+                            v-model="selectedFilters[filter.value]" maxlength="30"></datepicker>
                         <select class="table-dropdown" v-else-if="filter.type == 'select'" :name="filter.value"
                             v-model="selectedFilters[filter.value]">
                             <option v-for="(option, index) in filter.options" :key="index" :value="option.value">
                                 {{ option.title }}
                             </option>
                         </select>
+
+                        <treeselect v-else-if="filter.type == 'select-normal'" class="vue-treeselect-reports"
+                            v-model="selectedFilters[filter.value]" :multiple="filter.multiple ? true : false"
+                            :options="filter.options" :async="true" :load-options="filter.loadOptions"
+                            :placeholder="filter.placeholder" />
 
                         <treeselect v-else-if="filter.type == 'select-extended'" class="vue-treeselect-reports"
                             :open-on-click="true" :open-on-focus="true" :open-on-hover="true"
@@ -43,27 +47,23 @@
                         </treeselect>
 
                         <treeselect v-else-if="filter.type == 'select-async'" class="vue-treeselect-reports"
-                            :multiple="true" :load-options="filter.loadOptions" :options="filter.options"
-                            :auto-load-root-options="true" v-model="selectedFilters[filter.value]">
-                            <template #value-label="{ node }">
-                                <div>{{ node.raw.customLabel ? node.raw.customLabel : node.raw.label }}</div>
-                            </template>
-                        </treeselect>
-
-                        <!-- <treeselect v-else-if="filter.type == 'select-async'" class="vue-treeselect-reports"
                             :open-on-click="true" :clearable="filter.clearable ? true : false" :open-on-focus="true"
                             :open-on-hover="true" :searchable="true"
                             :disable-branch-nodes="filter.disableBranchNodes ? filter.disableBranchNodes : false"
                             :cache-options="true" :placeholder="filter.placeholder" :show-count="true"
                             :default-expand-level="1" :async="true" :load-options="filter.loadOptions"
-                            :options="filter.options" :default-options="false"
-                            :multiple="filter.multiple ? true : false" :append-to-body="false"
+                            :default-options="true" :multiple="filter.multiple ? true : false" :append-to-body="false"
                             v-model="selectedFilters[filter.value]">
-                            <template #value-label="{ node }" slot-scope="{ node }">
-                                <div>{{ node.raw.customLabel ? node.raw.customLabel : node.raw.label }}</div>
-                            </template>
-
-                        </treeselect> -->
+                            <div slot="value-label" slot-scope="{ node }">{{ node.raw.customLabel ? node.raw.customLabel
+                                :
+                                node.raw.label }}</div>
+                            <label slot="option-label"
+                                slot-scope="{ node, shouldShowCount, count, labelClassName, countClassName }"
+                                :class="labelClassName">
+                                {{ node.label }}
+                                <span v-if="shouldShowCount" :class="countClassName">({{ count }})</span>
+                            </label>
+                        </treeselect>
 
                         <input v-model="selectedFilters[filter.value]" v-else class="form-control tBoxSize02"
                             :placeholder="filter.title" />
@@ -226,8 +226,9 @@
 
 <script>
 import TableComponent from './TableComponent.vue';
-import Datepicker from 'vuejs3-datepicker';
+import Datepicker from 'vuejs3-datepicker'
 import Treeselect from "@zanmato/vue3-treeselect";
+
 export default {
     extends: TableComponent,
     components: {

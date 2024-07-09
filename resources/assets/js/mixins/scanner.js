@@ -6,7 +6,7 @@ export default {
 
             this.$swal({
                 position: 'center',
-                type: 'error',
+                icon: 'error',
                 title: 'Issue!',
                 showConfirmButton: false,
                 timer: 2500,
@@ -17,7 +17,7 @@ export default {
         scanSuccess: function (response) {
             this.$swal({
                 position: 'top-right',
-                type: 'success',
+                icon: 'success',
                 title: 'Success!',
                 showConfirmButton: false,
                 timer: 2500,

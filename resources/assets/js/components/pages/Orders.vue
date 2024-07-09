@@ -11,25 +11,31 @@
                         :hidden-columns="['checked', 'ActivityID', 'Arguments']" :filters="filters"
                         :column-map="columnMap" deleteUrl="/orders" deleteId="ReferenceNumber"
                         :not-orderable="['Pharmacies']" />
-
-                    <treeselect v-model="value" :multiple="true" :options="options" :auto-load-root-options="false"
-                        :async="true" :load-options="loadOptions" placeholder="Try expanding any folder option..." />
                 </div>
             </div>
         </section>
     </div>
 </template>
 
+<style>
+@import "@zanmato/vue3-treeselect/dist/vue3-treeselect.min.css";
+</style>
+
+
 <script>
 import { defineAsyncComponent } from 'vue'
 import orderStatuses from '../../mixins/constants/orderStatuses'
 import filtersData from '../../mixins/filtersData'
-import { ASYNC_SEARCH } from '@zanmato/vue3-treeselect'
+import Treeselect from "@zanmato/vue3-treeselect";
 
 export default {
     mixins: [orderStatuses, filtersData],
+    components: {
+        Treeselect
+    },
     data: function () {
         return {
+            pharmacies: [],
             userInfo: userInfo,
             columnMap: {
                 'PrescriptionID': 'ID',
@@ -75,38 +81,12 @@ export default {
                 {
                     title: 'Pharmacy',
                     value: 'pharmacy',
-                    type: 'select-async',
-                    options: null,
+                    type: 'select-normal',
+                    options: this.pharmacies,
+                    loadOptions: this.pharmacies,
                     multiple: true,
                     clearable: true,
                     placeholder: 'Select Pharmacy',
-                    loadOptions: _.debounce(({ action, parentNode, callback }) => {
-                        console.log(action, parentNode, callback)
-                        if (action === "LOAD_ROOT_OPTIONS") {
-                            let filter = searchQuery != '' && typeof searchQuery != 'undefined' ? `?filter=${searchQuery}` : '';
-
-                            axios.get(`/pharmacies/list${filter}`)
-                                .then((response) => {
-                                    let r = response.data.data;
-                                    let pharmacies = [];
-
-                                    r.forEach(result => {
-                                        pharmacies.push({
-                                            id: result.PharmacyID,
-                                            value: result.PharmacyID,
-                                            label: result.Title
-                                        });
-                                    });
-
-                                    console.log(pharmacies);
-
-                                    callback(null, pharmacies);
-                                })
-                                .catch((error) => {
-                                    console.log(error);
-                                })
-                        }
-                    }, 500),
                 },
                 {
                     title: 'Status',
@@ -128,7 +108,6 @@ export default {
         'TableComponentSearch': defineAsyncComponent(() => import('../TableComponentSearch.vue')),
     },
     mounted() {
-        console.log(this.userInfo);
         this.filters.find((o, i) => {
             switch (o.value) {
                 case 'status':
@@ -209,15 +188,49 @@ export default {
                         })
                     // o.options = this.orderStatusesSelect;
                     break;
+                case 'pharmacy':
+                    o.options = this.pharmacies;
+                    break;
                 default:
                     break;
             }
         });
+
+        this.getPharmacies();
     },
     methods: {
-        simulateAsyncOperation(fn) {
-            setTimeout(fn, 2000);
-        }
+        getPharmacies() {
+            axios.get(`/pharmacies/list`)
+                .then((response) => {
+                    let r = response.data.data;
+
+                    r.forEach(result => {
+                        this.pharmacies.push({
+                            id: result.PharmacyID,
+                            //value: result.Title,
+                            label: result.Title
+                        });
+                    });
+
+                    console.log(this.pharmacies);
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+        },
+        selectOpen(instance) {
+            //this is a specific fix for statuses since we need them to be wider than usual (when opening substatus selectors)
+            if (instance == 'status-extended') {
+                let element = document.querySelector('[data-instance-id="status-extended"]').firstChild
+                element.classList.add('vue-treeselect__menu-container-body');
+            }
+        },
+        normalizer(node) {
+            return {
+                id: node.PharmacyID,
+                label: node.Title,
+            }
+        },
     }
 }
 </script>
