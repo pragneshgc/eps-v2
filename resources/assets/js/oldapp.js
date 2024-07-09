@@ -17,11 +17,7 @@ Vue.use(VueRouter);
 Vue.use(VueSweetalert2);
 Vue.use(Toasted);
 Vue.component("v-select", vSelect);
-//Vue.component('Chart', require('./components/ChartComponent.vue'));
-//Vue.component('PieChart', require('./components/PieChartComponent.vue'));
 Vue.component("DataTable", TableComponent);
-//Vue.component('InventoryDataTable', require('./components/InventoryTableComponent.vue'));
-//Vue.component('MapChart', require('./components/MapComponent.vue'));
 
 /**
  * Router setup

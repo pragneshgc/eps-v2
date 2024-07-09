@@ -211,8 +211,6 @@ export default {
                             label: result.Title
                         });
                     });
-
-                    console.log(this.pharmacies);
                 })
                 .catch((error) => {
                     console.log(error);

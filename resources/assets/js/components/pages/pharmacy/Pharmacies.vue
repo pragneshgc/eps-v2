@@ -5,10 +5,8 @@
                 <h3>Pharmacies</h3>
             </div>
             <div class="card-body">
-                <button class="btn btnSize01 secondaryBtn mb-10">
-                    <router-link tag="button" to="/pharmacies/new">
-                        Add new pharmacy
-                    </router-link>
+                <button class="btn btnSize01 secondaryBtn mb-10" @click="$router.push('/pharmacies/new')">
+                    Add new pharmacy
                 </button>
 
                 <DataTable data-url="/pharmacies" column-class="col-lg-12" table-title="Pharmacies"

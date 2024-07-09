@@ -564,3 +564,8 @@ input.vue3-treeselect__input:not(:placeholder-shown){
     height: auto !important;
     position: relative !important;
 }
+
+.hideicon th span,
+.hideicon th i{
+    display: none !important;
+}

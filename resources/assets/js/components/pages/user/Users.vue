@@ -5,10 +5,8 @@
                 <h3>Users</h3>
             </div>
             <div class="card-body">
-                <button class="btn btnSize01 secondaryBtn mb-10">
-                    <router-link to="/users/new">
-                        Add new user
-                    </router-link>
+                <button class="btn btnSize01 secondaryBtn mb-10" @click="$router.push('/users/new')">
+                    Add new user
                 </button>
 
                 <DataTable data-url="/users" column-class="col-lg-12" table-title="Users" redirect-name="user"

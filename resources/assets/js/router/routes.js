@@ -1,6 +1,5 @@
 //Pages
 import Dashboard from "@/components/pages/Dashboard.vue";
-// import ImportTracking from './components/pages/ImportTracking'
 import Order from "@/components/pages/Order.vue";
 
 const routes = [
@@ -9,12 +8,6 @@ const routes = [
         name: "home",
         component: Dashboard,
     },
-    // {
-    //     path: '/import-tracking',
-    //     name: 'import tracking',
-    //     meta: {minRole: 50},
-    //     component: ImportTracking
-    // },
     {
         path: "/order/:id",
         name: "order",
@@ -142,12 +135,6 @@ const routes = [
                 /* webpackChunkName: "NotFound" */ "@/components/pages/generic/NotFound.vue"
             ),
     },
-    // {
-    //     path: '/notallowed',
-    //     name: 'not allowed',
-    //     //component: NotAllowed
-    //     component: () => import(/* webpackChunkName: "NotAllowed" */ './components/pages/generic/NotAllowed.vue')
-    // },
     {
         path: "/:catchAll(.*)",
         redirect: "/404"

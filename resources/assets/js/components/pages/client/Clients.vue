@@ -5,10 +5,8 @@
                 <h3>Clients</h3>
             </div>
             <div class="card-body">
-                <button class="btn btnSize01 secondaryBtn mb-10">
-                    <router-link tag="button" to="/clients/new">
-                        Add new client
-                    </router-link>
+                <button class="btn btnSize01 secondaryBtn mb-10" @click="$router.push('/clients/new')">
+                    Add new client
                 </button>
 
                 <TableComponentSearch data-url="/clients/index" column-class="col-lg-12" table-title="Clients"
