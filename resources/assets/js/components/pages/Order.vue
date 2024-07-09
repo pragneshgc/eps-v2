@@ -28,7 +28,8 @@
                             <li><span>Status: </span>{{ orderStatuses[orderDetails.Status] }}</li>
                             <li v-if="orderDetails.TrackingCode != '' && orderDetails.TrackingCode != null">
                                 <span>Tracking
-                                    Code: </span>{{ orderDetails.TrackingCode }}</li>
+                                    Code: </span>{{ orderDetails.TrackingCode }}
+                            </li>
                             <!-- <li v-if="orderDetails.Repeats != '0' && orderDetails.Repeats != '' && [143, 162, 205, 243].includes(orderDetails.DCountryCode)">
                                 <span>Commercial value: </span>{{ orderDetails.Repeats }}
                             </li> -->
@@ -68,8 +69,11 @@
                 <section class="flexContent flex-direction-row"
                     v-if="!loading && orderDetails != null && orderDetails.Decomissioned && [7, 8].includes(orderDetails.Status)">
                     <div style="width: 100%;">
-                        <div style="display:flex; justify-content:center;"
-                            v-if="orderDetails.DeliveryID == '7' || orderDetails.DeliveryID == '10' || orderDetails.DeliveryID == '4'">
+
+                        <div style="display:flex; justify-content:center;" v-if="orderDetails.DeliveryID == '7'
+                            || orderDetails.DeliveryID == '10'
+                            || orderDetails.DeliveryID == '4'">
+
                             <button @click="request()" :disabled="requestedPrint || orderDetails.DeliveryID == '7'"
                                 v-if="(orderDetails.TrackingCode == '' || orderDetails.TrackingCode == null) && !isManual/* && (!isManual && !isCommercialPaper)*/"
                                 class="btn btnSize01 tertiaryBtn bigButton mr-10 big-round-button" type="submit">
@@ -81,23 +85,7 @@
                                 class="btn btnSize01 tertiaryBtn bigButton big-round-button" type="submit">
                                 Reprint Label
                             </button>
-                            <!-- <button @click="manual()" v-if="orderDetails.DeliveryID == '7' && (isManual || isCommercialPaper)"
-                            :disabled="true"
-                            class="btn btnSize01 tertiaryBtn bigButton big-round-button" type="submit">
-                                {{manualPrintText}}
-                            </button>
-                            <button @click="manual()" v-else-if="orderDetails.DeliveryID == '10' && (isManual || isCommercialPaper)" class="btn btnSize01 tertiaryBtn bigButton big-round-button" type="submit">
-                                {{manualPrintText}}
-                            </button>
-                            <button @click="manual()" v-else-if="orderDetails.DeliveryID == '10'" class="btn btnSize01 tertiaryBtn bigButton big-round-button" type="submit">
-                                {{manualPrintText}}
-                            </button>
 
-                            <button @click="manual()" v-else-if="orderDetails.DeliveryID == '7' && isCommercial && !isCommercialPaper"
-                            :disabled="true"
-                            class="btn btnSize01 tertiaryBtn" type="submit">
-                                {{manualPrintText}}
-                            </button>    -->
 
                             <button @click="reset()" :disabled="requestedPrint"
                                 v-if="!isManual && (orderDetails.TrackingCode != '' && orderDetails.TrackingCode != null)"
@@ -105,11 +93,7 @@
                                 Reset Label
                             </button>
                         </div>
-                        <!-- <div v-else>
-                            <button @click="manual()" class="btn btnSize01 tertiaryBtn bigButton big-round-button" type="submit">
-                                {{manualPrintText}}
-                            </button>
-                        </div> -->
+
                     </div>
                 </section>
             </transition>
