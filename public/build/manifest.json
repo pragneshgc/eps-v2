@@ -1,0 +1,224 @@
+{
+  "_vue3-treeselect.cjs.min-DxZvkgTm.js": {
+    "file": "assets/vue3-treeselect.cjs.min-DxZvkgTm.js",
+    "name": "vue3-treeselect.cjs.min",
+    "imports": [
+      "resources/assets/js/app.js"
+    ]
+  },
+  "node_modules/canvg/lib/index.es.js": {
+    "file": "assets/index.es-DaTc0ows.js",
+    "name": "index.es",
+    "src": "node_modules/canvg/lib/index.es.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/assets/js/app.js"
+    ]
+  },
+  "node_modules/dompurify/dist/purify.es.js": {
+    "file": "assets/purify.es-DGIRlouP.js",
+    "name": "purify.es",
+    "src": "node_modules/dompurify/dist/purify.es.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/html2canvas/dist/html2canvas.esm.js": {
+    "file": "assets/html2canvas.esm-CBrSDip1.js",
+    "name": "html2canvas.esm",
+    "src": "node_modules/html2canvas/dist/html2canvas.esm.js",
+    "isDynamicEntry": true
+  },
+  "resources/assets/images/iconPaper.png": {
+    "file": "assets/iconPaper-mzJ3qGNQ.png",
+    "src": "resources/assets/images/iconPaper.png"
+  },
+  "resources/assets/js/app.js": {
+    "file": "assets/app-jXeI2irY.js",
+    "name": "app",
+    "src": "resources/assets/js/app.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/assets/js/components/pages/pharmacy/Pharmacies.vue",
+      "resources/assets/js/components/pages/pharmacy/NewPharmacy.vue",
+      "resources/assets/js/components/pages/pharmacy/Pharmacy.vue",
+      "resources/assets/js/components/pages/client/Clients.vue",
+      "resources/assets/js/components/pages/client/New.vue",
+      "resources/assets/js/components/pages/client/Client.vue",
+      "resources/assets/js/components/pages/user/Users.vue",
+      "resources/assets/js/components/pages/user/NewUser.vue",
+      "resources/assets/js/components/pages/user/User.vue",
+      "resources/assets/js/components/pages/Reports.vue",
+      "resources/assets/js/components/pages/Orders.vue",
+      "resources/assets/js/components/pages/general/Info.vue",
+      "resources/assets/js/components/pages/generic/NotFound.vue",
+      "node_modules/html2canvas/dist/html2canvas.esm.js",
+      "node_modules/dompurify/dist/purify.es.js",
+      "node_modules/canvg/lib/index.es.js"
+    ],
+    "css": [
+      "assets/app-DARUaxu_.css"
+    ],
+    "assets": [
+      "assets/iconPaper-mzJ3qGNQ.png"
+    ]
+  },
+  "resources/assets/js/components/TableComponentOrders.vue": {
+    "file": "assets/TableComponentOrders-DWnykaeg.js",
+    "name": "TableComponentOrders",
+    "src": "resources/assets/js/components/TableComponentOrders.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/assets/js/components/TableComponentSearch.vue",
+      "resources/assets/js/app.js",
+      "_vue3-treeselect.cjs.min-DxZvkgTm.js"
+    ]
+  },
+  "resources/assets/js/components/TableComponentSearch.vue": {
+    "file": "assets/TableComponentSearch-Dfo5Xaay.js",
+    "name": "TableComponentSearch",
+    "src": "resources/assets/js/components/TableComponentSearch.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/assets/js/app.js",
+      "_vue3-treeselect.cjs.min-DxZvkgTm.js"
+    ],
+    "css": [
+      "assets/TableComponentSearch-B76Gv48S.css"
+    ]
+  },
+  "resources/assets/js/components/pages/Orders.vue": {
+    "file": "assets/Orders-Dlm_QIp5.js",
+    "name": "Orders",
+    "src": "resources/assets/js/components/pages/Orders.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/assets/js/app.js",
+      "_vue3-treeselect.cjs.min-DxZvkgTm.js"
+    ],
+    "dynamicImports": [
+      "resources/assets/js/components/TableComponentOrders.vue"
+    ]
+  },
+  "resources/assets/js/components/pages/Reports.vue": {
+    "file": "assets/Reports-D9vmP6YK.js",
+    "name": "Reports",
+    "src": "resources/assets/js/components/pages/Reports.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/assets/js/app.js"
+    ],
+    "dynamicImports": [
+      "resources/assets/js/components/TableComponentSearch.vue"
+    ]
+  },
+  "resources/assets/js/components/pages/client/Client.vue": {
+    "file": "assets/Client-CZEDYHPO.js",
+    "name": "Client",
+    "src": "resources/assets/js/components/pages/client/Client.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/assets/js/app.js"
+    ]
+  },
+  "resources/assets/js/components/pages/client/Clients.vue": {
+    "file": "assets/Clients-EAVy__Jh.js",
+    "name": "Clients",
+    "src": "resources/assets/js/components/pages/client/Clients.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/assets/js/app.js"
+    ],
+    "dynamicImports": [
+      "resources/assets/js/components/TableComponentSearch.vue"
+    ]
+  },
+  "resources/assets/js/components/pages/client/New.vue": {
+    "file": "assets/New-Da_AAbJo.js",
+    "name": "New",
+    "src": "resources/assets/js/components/pages/client/New.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/assets/js/app.js"
+    ]
+  },
+  "resources/assets/js/components/pages/general/Info.vue": {
+    "file": "assets/Info-BucbG-tz.js",
+    "name": "Info",
+    "src": "resources/assets/js/components/pages/general/Info.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/assets/js/app.js"
+    ]
+  },
+  "resources/assets/js/components/pages/generic/NotFound.vue": {
+    "file": "assets/NotFound-CAEIpTnq.js",
+    "name": "NotFound",
+    "src": "resources/assets/js/components/pages/generic/NotFound.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/assets/js/app.js"
+    ]
+  },
+  "resources/assets/js/components/pages/pharmacy/NewPharmacy.vue": {
+    "file": "assets/NewPharmacy-DLdyfxU6.js",
+    "name": "NewPharmacy",
+    "src": "resources/assets/js/components/pages/pharmacy/NewPharmacy.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/assets/js/app.js"
+    ]
+  },
+  "resources/assets/js/components/pages/pharmacy/Pharmacies.vue": {
+    "file": "assets/Pharmacies-QR6wdFNk.js",
+    "name": "Pharmacies",
+    "src": "resources/assets/js/components/pages/pharmacy/Pharmacies.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/assets/js/app.js"
+    ]
+  },
+  "resources/assets/js/components/pages/pharmacy/Pharmacy.vue": {
+    "file": "assets/Pharmacy-4CwbIbGV.js",
+    "name": "Pharmacy",
+    "src": "resources/assets/js/components/pages/pharmacy/Pharmacy.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/assets/js/app.js",
+      "_vue3-treeselect.cjs.min-DxZvkgTm.js"
+    ],
+    "css": [
+      "assets/Pharmacy-DhAfy8nd.css"
+    ]
+  },
+  "resources/assets/js/components/pages/user/NewUser.vue": {
+    "file": "assets/NewUser-B5j48Grv.js",
+    "name": "NewUser",
+    "src": "resources/assets/js/components/pages/user/NewUser.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/assets/js/app.js"
+    ]
+  },
+  "resources/assets/js/components/pages/user/User.vue": {
+    "file": "assets/User-B6cbQoRa.js",
+    "name": "User",
+    "src": "resources/assets/js/components/pages/user/User.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/assets/js/app.js"
+    ]
+  },
+  "resources/assets/js/components/pages/user/Users.vue": {
+    "file": "assets/Users-WsYgSowq.js",
+    "name": "Users",
+    "src": "resources/assets/js/components/pages/user/Users.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/assets/js/app.js"
+    ]
+  },
+  "resources/assets/sass/app.scss": {
+    "file": "assets/app-4PRAajbP.css",
+    "src": "resources/assets/sass/app.scss",
+    "isEntry": true
+  }
+}

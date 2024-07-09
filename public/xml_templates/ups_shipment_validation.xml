@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ShipmentAcceptRequest>
+    <Request>
+        <TransactionReference>
+            <CustomerContext>ID-REFERENCE</CustomerContext>
+            <XpciVersion>1.0001</XpciVersion>
+        </TransactionReference>
+        <RequestAction>ShipAccept</RequestAction>
+    </Request>
+    <ShipmentDigest>DIGEST</ShipmentDigest>
+</ShipmentAcceptRequest>

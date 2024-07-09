@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenShipments xmlns="x-schema:OpenShipments.xdr">
+	<OpenShipment ShipmentOption="" ProcessStatus="">
+		<ShipTo>
+			<CustomerID></CustomerID>
+			<CompanyOrName>Markus Egerer</CompanyOrName>
+			<Attention>Markus Egerer</Attention>
+			<Address1>Pottendorferstrasse 249</Address1>
+			<Address2></Address2>
+			<Address3>Wiener Neustadt</Address3>
+			<CountryTerritory>AT</CountryTerritory>
+			<PostalCode>2700</PostalCode>
+			<CityOrTown>Wiener Neustadt</CityOrTown>
+			<Telephone>06503311990</Telephone>
+			<EmailAddress>doktore429@gmail.com</EmailAddress>
+		</ShipTo>
+		<ShipmentInformation>
+			<ShipperNumber>97W57F</ShipperNumber>
+			<ServiceType>SV</ServiceType>
+			<PackageType>CP</PackageType>
+			<NumberOfPackages>1</NumberOfPackages>
+			<ShipmentActualWeight>0.5</ShipmentActualWeight>
+			<DescriptionOfGoods>Medical Supplies</DescriptionOfGoods>
+			<Reference1>316797983-406535</Reference1>
+			<Reference2>406535</Reference2>
+			<BillTransportationTo>SHP</BillTransportationTo>
+			<QVNOption>
+				<QVNRecipientAndNotificationTypes>
+					<CompanyOrName></CompanyOrName>
+					<ContactName>Markus Egerer</ContactName>
+					<EMailAddress>doktore429@gmail.com</EMailAddress>
+					<Ship>1</Ship>
+				</QVNRecipientAndNotificationTypes>
+				<Memo>316797983</Memo>
+			</QVNOption>
+		</ShipmentInformation>
+	</OpenShipment>
+</OpenShipments>
