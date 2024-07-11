@@ -207,12 +207,12 @@ button:disabled:hover{
         align-items: center;
         flex-grow: 1;
         li{
+            font-size: 20px;
+            font-weight: 700;
             span{
                 font-size: 16px;
                 font-weight: 500;
             }
-            font-size: 20px;
-            font-weight: 700;
         }
     }
 }
@@ -488,10 +488,6 @@ input:focus, select:focus, option:focus, option:active, select:focus-within, tex
                 // color: #f53c38;
                 background: #f53c38!important;
                 // border: 1px solid #8fdade;
-                .vue-treeselect__icon{
-                    // color: #f53c38;
-                    // background: white!important;
-                }
             }
         }
     }

@@ -18,7 +18,7 @@ export default {
         window.removeEventListener('offline');
     },
 }
-</script>z
+</script>
 
 <template>
     <div>
